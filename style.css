@@ -21,6 +21,7 @@ html {
 body {
     background: var(--background);
     font-family: 'Poppins', sans-serif;
+    height:1200px;
 }
 
 
@@ -207,10 +208,12 @@ button:hover {
 /* Footer ===================== */
 
 footer {
-    position: absolute;
-    align-items: center;
+    position: relative;
+    text-align:center;
     bottom: 0;
     width: 100%;
+    background: var(--background);
+
 }
 
 footer h3 {
