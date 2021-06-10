@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas Fiscais</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.3/jquery.mask.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.3/jquery.mask.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <main class="container">
+        <div id="form">
+            <h2>LAN&Ccedil;AMENTO DE NF</h2>
+
+            <form action="">
+                <hr />
+                <fieldset>
+                    <legend>Dados da NF</legend>
+                    <div class="separator light"></div>
+
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <label class="sr-only" for="number-nf">N&ordm; da NF:</label>
+                            <input type="text" name="number-nf" id="number-nf" value="" class="number-nf" placeholder="Numero do documento">
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label class="sr-only" for="date-emissao">Emiss&atilde;o;:</label>
+                            <input onblur="chamar()" type="date" name="date-emissao" id="date-emissao" value="" class="date-emissao" placeholder="Data emiss&atilde;o">
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label class="sr-only" for="date-due-date">Vencimento</label>
+                            <input onblur="chamar()" type="date" name="date-due-date" id="date-due-date" value="" class="date-due-date" placeholder="Data vencimento">
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label class="sr-only" for="days-due-date">Dias para vencimento</label>
+                            <input type="number" name="days-due-date" id="days-due-date" value="" class="days-due-date" placeholder="Dias para vencimento">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <label class="sr-only" for="cep">CEP:</label>
+                            <input type="text" name="cep" id="cep" class="cep" placeholder="CEP">
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label class="sr-only" for="address">Endere&ccedil;o:</label>
+                            <input type="text" name="address" id="address" class="address" placeholder="Endere&ccedil;o">
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label class="sr-only" for="number-address">N&ordm;: </label>
+                            <input type="text" name="number-address" id="number-address" class="number-address" placeholder="N&uacute;mero">
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label class="sr-only" for="complement-address">Complemento: </label>
+                            <input type="text" name="complement-address" id="complement-address" class="complement-address" placeholder="Complemento">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <label class="sr-only" for="district-address">Bairro: </label>
+                            <input type="district" name="district-address" id="district-address" class="district-address" placeholder="Bairro">
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label class="sr-only" for="city-address">Cidade: </label>
+                            <input type="text" name="city-address" id="city-address" class="city-address" placeholder="Cidade">
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label class="sr-only" for="type-person">Tipo: </label>
+                            <select type="text" name="type-person" id="type-person" class="type-person">
+                <option value="-" selected>Selecione</option>
+                <option value="physical">Pessoa F&iacute;sica</option>
+                <option value="legal">Pessoa Jur&iacute;dica</option>
+              </select>
+                        </div>
+                        <div class="input-wrapper">
+                            <label class="sr-only" for="cpf-cnpj">CNPJ / CPF:</label>
+                            <input name="cpf-cnpj" value="" type="text" onkeypress="mascaraMutuarioCpf(this,cpfCnpj)" id="cpf-cnpj" class="cpf-cnpj" placeholder="CNPJ / CPF">
+                        </div>
+                    </div>
+                </fieldset>
+                <hr />
+                <fieldset>
+                    <legend>Produtos</legend>
+                    <div class="separator light"></div>
+                    <div class="input-group">
+                        <table id="data-table" class="data-table">
+                            <thead>
+                                <tr>
+                                    <td>C&oacute;digo Produto</td>
+                                    <td>Descri&ccedil;&atilde;o Produto</td>
+                                    <td>Quantidade</td>
+                                    <td>Valor Unit&aacute;rio</td>
+                                    <td>Valor Total</td>
+                                    <td>Imposto</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="text" name="code" id="code" class="code" placeholder="C&oacute;digo Produto">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="description" id="description" class="description" placeholder="Descri&ccedil;&atilde;o Produto"></td>
+                                    <td>
+                                        <input onblur="calc(this);" type="number" onchange="calcQuantity(this);" name="quantity" id="quantity" class="quantity" placeholder="0,00">
+                                    </td>
+                                    <td>
+                                        <input onblur="calc(this);" type="text" name="amount" id="amount" class="amount" placeholder="0,00">
+                                    </td>
+                                    <td>
+                                        <input type="text" onblur="calcTotal()" name="total" id="total" class="total" placeholder="0,00">
+                                    </td>
+                                    <td>
+                                        <input type="text" onblur="calcTax()" name="tax" id="tax" class="tax" placeholder="0,00">
+                                    </td>
+
+                                    <td>
+                                        <button id="remove" onclick="RemoveTableRow(this)" type="button">Remover</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <input type="text" name="code2" id="code2" class="code2" placeholder="C&oacute;digo Produto">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="description2" id="description2" class="description2" placeholder="Descri&ccedil;&atilde;o Produto"></td>
+                                    <td>
+                                        <input onblur="calc2(this);" type="number" onchange="calcQuantity(this);" name="quantity2" id="quantity2" class="quantity" placeholder="0,00">
+                                    </td>
+                                    <td>
+                                        <input onblur="calc2(this);" type="text" name="amount2" id="amount2" class="amount2" placeholder="0,00">
+                                    </td>
+                                    <td>
+                                        <input type="text" onblur="calcTotal()" name="total2" id="total2" class="total2" placeholder="0,00">
+                                    </td>
+                                    <td>
+                                        <input type="number" onblur="calcTax()" name="tax2" id="tax2" class="tax2" placeholder="0,00">
+                                    </td>
+                                    <td>
+                                        <button id="remove" onclick="RemoveTableRow(this)" type="button">Remover</button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <input type="text" name="code3" id="code3" class="code3" placeholder="C&oacute;digo Produto">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="description3" id="description3" class="description3" placeholder="Descri&ccedil;&atilde;o Produto"></td>
+                                    <td>
+                                        <input onblur="calc3(this);" type="number" onchange="calcQuantity(this);" name="quantity3" id="quantity3" class="quantity" placeholder="0,00">
+                                    </td>
+                                    <td>
+                                        <input onblur="calc3(this);" type="text" name="amount3" id="amount3" class="amount3" placeholder="0,00">
+                                    </td>
+                                    <td>
+                                        <input type="text" onblur="calcTotal()" name="total3" id="total3" class="total3" placeholder="0,00">
+                                    </td>
+                                    <td>
+                                        <input type="number" onblur="calcTax()" name="tax3" id="tax3" class="tax3" placeholder="0,00">
+                                    </td>
+                                    <td>
+                                        <button id="remove" onclick="RemoveTableRow(this)" type="button">Remover</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="5" style="text-align: left;">
+                                        <button onclick="AddTableRow()" type="button">Adicionar Produto</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </fieldset>
+                <hr />
+                <fieldset>
+                    <legend>Total</legend>
+                    <div class="separator light"></div>
+
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <label class="sr-only" for="total-quantity">Quantidade:</label>
+                            <input type="number" readonly name="total-quantity" id="total-quantity" class="total-quantity" placeholder="0,00">
+                        </div>
+
+                        <div class="input-wrapper">
+                            <label class="sr-only" for="total-amount"> Valor Total:</label>
+                            <input type="text" readonly name="total-amount" id="total-amount" class="total-amount" placeholder="0,00">
+                        </div>
+                        <div class="input-wrapper">
+                            <label class="sr-only" for="total-tax">Total Imposto:</label>
+                            <input type="text" readonly name="total-tax" id="total-tax" class="total-tax" placeholder="0,00">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="input-group actions" id="save">
+                    <button id="save" onclick="window.print()">Salvar</button>
+                </div>
+            </form>
+
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script src="./nf.js"></script>
+
+</body>
+
+</html>

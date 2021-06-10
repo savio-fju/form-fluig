@@ -1,0 +1,219 @@
+:root {
+    --dark-blue: #1f1555;
+    --black: #000000;
+    --background: #e2e0e0;
+    --color-card-title: #515174;
+    --green: #49aa26;
+    --white: #899095;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 93.75%;
+    height: 100%
+}
+
+body {
+    background: var(--background);
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Header ===================== */
+
+header {
+    background: var(--dark-blue);
+    padding: 2rem 0 13rem;
+    text-align: center;
+}
+
+
+/* Container ===================== */
+
+.container {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    padding: 2rem;
+}
+
+
+/* Form ===================== */
+
+#form {
+    position: relative;
+    margin-top: 35%;
+    top: 0px;
+    left: 50%;
+    width: 1000px;
+    padding: 5rem;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+    background: var(--background);
+}
+
+#form h2 {
+    font-family: Poppins;
+    margin: 20px 60px;
+    padding: 0;
+    color: var(--dark-blue);
+    text-align: center;
+}
+
+form fieldset {
+    border: none;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 30px;
+}
+
+form fieldset+fieldset {
+    margin-top: 3.5rem;
+}
+
+form fieldset legend {
+    color: var(--color-card-title);
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 2.625rem;
+}
+
+fieldset .separator {
+    margin-bottom: 2rem;
+}
+
+form .input-group {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form .input-group .input-wrapper .sr-only {
+    display: block;
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+label {
+    display: inline-block;
+    font-weight: 500;
+    color: var(--color-card-title);
+    margin-bottom: 1rem;
+}
+
+input,
+select {
+    font-family: normal;
+    font-size: 16px;
+    font-weight: 500;
+    background: #FCFDFF;
+    border: 1px solid #E1E3E6;
+    border-radius: .313rem;
+    padding: 0.75rem 1.5rem;
+    width: 100%;
+    color: var(--black);
+}
+
+::placeholder {
+    color: #BFBFCC;
+}
+
+
+/* Table ===================== */
+
+#data-table {
+    width: 100%;
+    color: var(--color-card-title);
+}
+
+table thead tr {
+    text-align: center;
+}
+
+table tbody tr {
+    opacity: 0.7;
+}
+
+table tbody tr:hover {
+    opacity: 1;
+}
+
+table tbody tr td img {
+    cursor: pointer;
+}
+
+
+/* Buttons ===================== */
+
+table tbody tr #remove {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    border: 2px solid #E1E3E6;
+    border-radius: .313rem;
+    padding: 0.75rem 1.5rem;
+    width: 100%;
+    background: red;
+}
+
+tfoot tr td button {
+    font-family: IBM Plex Sans;
+    font-weight: 500;
+    border: 2px solid #E1E3E6;
+    border-radius: .313rem;
+    padding: 0.75rem 1.5rem;
+    width: 25%;
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    color: var(--background);
+    background: var(--green);
+    padding: 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#save {
+    color: var(--background);
+}
+
+.button.new {
+    display: inline-block;
+    margin-bottom: .8rem;
+    cursor: pointer;
+}
+
+.button.new:hover {
+    opacity: 0.8;
+    visibility: visible;
+}
+
+
+/* Footer ===================== */
+
+footer {
+    position: absolute;
+    align-items: center;
+    bottom: 0;
+    width: 100%;
+}
+
+footer h3 {
+    opacity: 0.6;
+    font-weight: normal;
+}
