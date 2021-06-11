@@ -21,7 +21,7 @@ Este projeto é um formulário de lançameto de NF.
 
 ### Ilustração do Formulario
 
-<a href="https://gifyu.com/image/oD5p"><img src="https://s6.gifyu.com/images/Fluig.png" alt="Fluig.png" border="0" /></a>
+<a href="https://gifyu.com/image/oBSS"><img src="https://s6.gifyu.com/images/Fluig.jpg" alt="Fluig.jpg" border="0" /></a>
 
 <!-- CONTRIBUTING -->
 
