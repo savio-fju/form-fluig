@@ -44,18 +44,18 @@
                         </div>
 
                         <div class="input-wrapper">
-                            <label class="sr-only" for="date-emissao">Emiss&atilde;o;:</label>
+                            <label class="sr-only" for="date-emissao">Emiss&atilde;o:</label>
                             <input onblur="chamar()" type="date" name="date-emissao" id="date-emissao" value="" class="date-emissao" placeholder="Data emiss&atilde;o">
                         </div>
 
                         <div class="input-wrapper">
-                            <label class="sr-only" for="date-due-date">Vencimento</label>
+                            <label class="sr-only" for="date-due-date">Vencimento:</label>
                             <input onblur="chamar()" type="date" name="date-due-date" id="date-due-date" value="" class="date-due-date" placeholder="Data vencimento">
                         </div>
 
                         <div class="input-wrapper">
-                            <label class="sr-only" for="days-due-date">Dias para vencimento</label>
-                            <input type="number" name="days-due-date" id="days-due-date" value="" class="days-due-date" placeholder="Dias para vencimento">
+                            <label class="sr-only" for="days-due-date">Dias para vencimento:</label>
+                            <input type="text" min="0" name="days-due-date" id="days-due-date" value="" class="days-due-date" placeholder="Dias para vencimento">
                         </div>
                     </div>
 
@@ -120,10 +120,11 @@
                                     <td>Valor Unit&aacute;rio</td>
                                     <td>Valor Total</td>
                                     <td>Imposto</td>
+                                    <td></td>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <!-- <tr>
                                     <td>
                                         <input type="text" name="code" id="code" class="code" placeholder="C&oacute;digo Produto">
                                     </td>
@@ -191,7 +192,7 @@
                                     <td>
                                         <button id="remove" onclick="RemoveTableRow(this)" type="button">Remover</button>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                             <tfoot>
                                 <tr>
@@ -220,7 +221,7 @@
                         </div>
                         <div class="input-wrapper">
                             <label class="sr-only" for="total-tax">Total Imposto:</label>
-                            <input type="text" readonly name="total-tax" id="total-tax" class="total-tax" placeholder="0,00">
+                            <input type="text" readonly min="0" max="100" name="total-tax" id="total-tax" class="total-tax" placeholder="0,00" >
                         </div>
                     </div>
                 </fieldset>

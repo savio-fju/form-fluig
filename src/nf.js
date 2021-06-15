@@ -1,5 +1,5 @@
 // FUNÇÃO QUE FAZ A CHAMADA DO WEBSERVICE PARA TRAZER O ENDEREÇO PELO CEP
-$(document).ready(function() {
+$(document).ready(function () {
 
     function limpa_formulário_cep() {
         // Limpa valores do formulário de cep.
@@ -9,7 +9,7 @@ $(document).ready(function() {
     }
 
     //Quando o campo cep perde o foco.
-    $("#cep").blur(function() {
+    $("#cep").blur(function () {
 
         //Nova variável "cep" somente com dígitos.
         var cep = $(this).val().replace(/\D/g, '');
@@ -30,7 +30,7 @@ $(document).ready(function() {
 
 
                 //Consulta o webservice viacep.com.br/
-                $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
+                $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
                     if (!("erro" in dados)) {
                         //Atualiza os campos com os valores da consulta.
@@ -114,8 +114,8 @@ function cpfCnpj(v) {
 
 function betweenDates() {
     //instantaneos do objeto Date, veja explicação no final da resposta
-    var dataUm = new Date(document.getElementById("date-emissao").value);
-    var dataDois = new Date(document.getElementById("date-due-date").value);
+    var dataUm = new Date(document.getElementById("date-due-date").value);
+    var dataDois = new Date(document.getElementById("date-emissao").value);
 
     return parseInt((dataUm - dataDois) / (24 * 3600 * 1000));
 }
@@ -148,18 +148,15 @@ function AddTableRow() {
 
 // -------------------------------- REMOVER PRODUTOS  ---------------------------------------------
 
-
 function RemoveTableRow(item) {
-    calcQuantity()
     var tr = $(item).closest('tr');
 
-    tr.fadeOut(400, function() {
+    tr.fadeOut(400, function () {
         tr.remove();
     });
 
     return false;
 }
-
 
 // -------------------------------- CALCULAR O SUBTOTAL  ---------------------------------------------
 
@@ -232,8 +229,9 @@ function calcTax() {
     tax3 = document.getElementById("tax3").value;
 
     soma = Number(tax) + Number(tax2) + Number(tax3);
+    total = soma + String("%")
 
-    document.getElementById("total-tax").value = soma;
+    document.getElementById("total-tax").value = total;
 
 }
 
@@ -313,3 +311,4 @@ function maskMoney() {
     document.getElementById("total-amount").value = valorFormatado;
 
 }
+
