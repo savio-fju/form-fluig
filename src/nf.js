@@ -130,18 +130,21 @@ function AddTableRow(index) {
     let product = {
         code: ['000001', '000002', '000003'],
         description: ["Notebook", "Teclado", "Mouse"],
+        quantity: [2, 1, 3],
         amount: [3000, 150, 80],
         tax: [15, 10, 5]
     }
 
+
+
     const html = `
     <td>
-    <input type="text" name="code" id="code" class="code" value="${product.code[0]}" placeholder="C&oacute;digo Produto"></td>
-    <td><input type="text" name="description" id="description" class="description" value="${product.description[0]}" placeholder="Descri&ccedil;&atilde;o Produto"></td>
-    <td><input onblur="calcula(this);" type="text" name="quantity" id="quantity" class="quantity" value="" placeholder="0,00"></td>
-    <td><input onblur="calcula(this);" type="text" name="amount" id="amount" class="amount" value="${product.amount[0]}" placeholder="0,00"></td>
-    <td><input type="text" name="total" id="total" class="total" value=""  placeholder="0,00"></td>
-    <td><input type="text" name="tax" id="tax" class="tax" value="${product.tax[0]}" placeholder="0,00"></td>
+    <input type="text" name="code" id="code" class="code" placeholder="C&oacute;digo Produto"></td>
+    <td><input type="text" name="description" id="description" class="description"  placeholder="Descri&ccedil;&atilde;o Produto"></td>
+    <td><input onblur="calculate();" type="text" name="quantity" id="quantity" value="" class="quantity" placeholder="0,00"></td>
+    <td><input onblur="calculate();" type="text" name="amount" id="amount" class="amount" placeholder="0,00"></td>
+    <td><input type="text" name="total" id="total" class="total"   placeholder="0,00"></td>
+    <td><input type="text" name="tax" id="tax" class="tax"  placeholder="0,00"></td>
     <td><button id="remove" onclick="RemoveTableRow(this)" type="button">Remover</button></td>
     `
 
@@ -168,11 +171,60 @@ function RemoveTableRow(item) {
 
 // -------------------------------- CALCULAR O SUBTOTAL  ---------------------------------------------
 
+function calculate() {
+    somarTotal()
+    const tbody = document.querySelector('#data-table tbody')
 
+    for (var i = 0; i < tbody.childNodes.length; i++) {
+        var tr = tbody.childNodes[i];
+        var td = tr.childNodes;
+
+        var subTotal = $(td[9]).find("input").val();
+
+        //CALCULAR SUBTOTAL
+        for (var j = 0; j < td.length; j++) {
+            var quantity = $(td[5]).find("input").val();
+            var amount = $(td[7]).find("input").val();
+
+            if (quantity == "" || amount == "") {
+                $(td[9]).find("input").val("");
+            }
+            var subTotal = quantity * amount
+
+            $(td[9]).find("input").val(Number(subTotal));
+        }
+
+    }
+
+
+}
 
 // -------------------------------- CALCULAR O TOTAL  ---------------------------------------------
 
 
+/* 
+function somarTotal() {
+    var total = 0
+    const tbody = document.querySelector('#data-table tbody')
+    for (var i = 0; i < tbody.childNodes.length; i++) {
+        var tr = tbody.childNodes[i];
+        var td = tr.childNodes;
+        for (var x = 0; x < td.length; x++) {
+            var subTotal = Number($(td[9]).find("input").val());
+            if (subTotal != "" || subTotal != 0) {
+                Number(total += subTotal);
+                console.log(subTotal)
+
+            }
+
+        }
+    }
+    document.getElementById('total-amount').value = total;
+
+
+    console.log(total)
+}
+ */
 
 
 // -------------------------------- MASK MONEY  ---------------------------------------------

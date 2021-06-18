@@ -123,6 +123,10 @@ select {
     color: var(--black);
 }
 
+div .date {
+    padding: 0.6rem 0.6rem;
+}
+
 ::placeholder {
     color: #BFBFCC;
 }
